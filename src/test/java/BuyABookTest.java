@@ -8,8 +8,7 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.screenshot;
+import static com.codeborne.selenide.Selenide.*;
 
 public class BuyABookTest {
 
@@ -71,6 +70,6 @@ public class BuyABookTest {
 
     @AfterMethod
     public void terminate() {
-        WebDriverSingleton.closeDriver();
+        closeWebDriver();
     }
 }
