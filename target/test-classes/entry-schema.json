@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "entry": {
+      "type": "object",
+      "properties": {
+        "basePrice": {
+          "type": "object",
+          "properties": {
+            "currencyIso": { "type": "string" },
+            "formattedValue": { "type": "string" },
+            "isTpr": { "type": "boolean" },
+            "priceType": { "type": "string" },
+            "value": { "type": "number" }
+          },
+          "required": ["currencyIso", "formattedValue", "priceType", "value"]
+        },
+        "configurationInfos": { "type": "array" },
+        "displayOrder": { "type": "integer" },
+        "entryNumber": { "type": "integer" },
+        "product": {
+          "type": "object",
+          "properties": {
+            "code": { "type": "string" },
+            "name": { "type": "string" },
+            "price": {
+              "type": "object",
+              "properties": {
+                "currencyIso": { "type": "string" },
+                "value": { "type": "number" }
+              },
+              "required": ["currencyIso", "value"]
+            },
+            "stock": {
+              "type": "object",
+              "properties": {
+                "stockLevel": { "type": "integer" },
+                "stockLevelStatus": { "type": "string" }
+              },
+              "required": ["stockLevel", "stockLevelStatus"]
+            }
+          },
+          "required": ["code", "name", "price", "stock"]
+        },
+        "quantity": { "type": "integer" },
+        "totalPrice": {
+          "type": "object",
+          "properties": {
+            "currencyIso": { "type": "string" },
+            "formattedValue": { "type": "string" },
+            "value": { "type": "number" }
+          },
+          "required": ["currencyIso", "formattedValue", "value"]
+        }
+      },
+      "required": ["basePrice", "displayOrder", "entryNumber", "product", "quantity", "totalPrice"]
+    },
+    "quantity": { "type": "integer" },
+    "quantityAdded": { "type": "integer" },
+    "statusCode": { "type": "string" }
+  },
+  "required": ["entry", "quantity", "quantityAdded", "statusCode"]
+}
