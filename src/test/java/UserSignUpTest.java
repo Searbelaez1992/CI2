@@ -62,6 +62,6 @@ public class UserSignUpTest {
 
     @AfterMethod
     public void terminate() {
-        closeWebDriver();;
+        closeWebDriver();
     }
 }
