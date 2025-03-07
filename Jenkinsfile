@@ -15,6 +15,18 @@ pipeline {
 
             }
         }
+        
+                stage('Static Code Analysis') {
+            steps {
+                sh "mvn checkstyle:checkstyle"
+            }
+        }
+        
+                stage('Publish Static Code Analysis Reports') {
+            steps {
+                recordIssues sourceCodeRetention: 'LAST_BUILD', tools: [checkStyle(pattern: 'reports/checkstyle/checkstyle.xml')]
+            }
+        }
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
